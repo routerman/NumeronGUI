@@ -1,5 +1,7 @@
 package Numeron;
 
+import java.util.Random;
+
 
 
 
@@ -114,8 +116,8 @@ public class Computer extends Player{
 		
 		//select in random from candidates.
 		//srand( (unsigned)time( NULL ) );
-		//Random rnd = new Random();
-		int count2=11;//rnd.toString().valueOf(rnd);
+		Random rnd = new Random();
+		int count2=rnd.nextInt(648);//648が有効数字の最初の個数
 		do{
 			for(int i=0;i<entry.length;i++){
 				if(entry[i].getProbablity()>0){
@@ -138,5 +140,8 @@ public class Computer extends Player{
 				entry[i].setProbablity(0);
 			}
 		}
+		Random rnd = new Random();
+		answer = rnd.nextInt(648);//648が有効数字の最初の個数
+
 	}
 }

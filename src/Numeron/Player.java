@@ -2,9 +2,8 @@ package Numeron;
 
 
 public class Player{
-	private int answer;//答えの数字
-	public int count;//質問した回数
-//	list<Entry> anslist;
+	protected int answer;//答えの数字
+	private int count;//質問した回数
 	//void setLastEntry(Entry test){this->anslist[count]=test;}
 	public void setAnswer(int answer){this.answer=answer;}
 	public int getAnswer(){return answer;}
@@ -12,11 +11,7 @@ public class Player{
 	//public void incCount(){this.count++;}
 	public int getCount(){return count;}
 	public void viewAnsList(){
-		/*
-		for(list<Entry>::iterator it = anslist.begin(); it!=anslist.end(); it++){
-			cout<<" : "<<it->number<<"="<<it->eat<<"-"<<it->bite<<endl;
-		}*/
-		
+		//プレイヤーのコールとジャッジのヒストリーを表示したいね
 	}
 	
 	public void proc(Entry a){
@@ -49,7 +44,6 @@ public class Player{
 
 	Player(){
 		count=0;
-		//answer.setNumber(253);
 	}
 	
 }

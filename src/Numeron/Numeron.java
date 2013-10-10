@@ -13,20 +13,19 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class Numeron extends JFrame {
-	private static final long serialVersionUID = 1L;
 	//interface
 	JPanel contentPane = new JPanel();//ボタンのインターフェース
 	BorderLayout borderLayout1 = new BorderLayout();//レイアウト
-	JLabel kouho = new JLabel("コンピュータの残りの候補数:"); 
+	JLabel candidate = new JLabel("コンピュータの残りの候補数:"); 
 	JTextField input = new JTextField(""); //選んだ数字を表示	
 	Entry sample;
 	//Game
 	boolean gameover=false;
-	boolean turn;
 	boolean start=false;//最初は数字を決める必要がある。
 	boolean afterEnter = false;
 	Player player;
-	Computer computer;;
+	Computer computer;
+	
 	//フレームのビルド
 	public static void main( String[] args ){
 		new Numeron();
@@ -38,7 +37,7 @@ public class Numeron extends JFrame {
 		this.setTitle("Numeron");
 		this.setContentPane(contentPane);
 
-		contentPane.add(kouho, BorderLayout.NORTH); //候補をラベル表示
+		contentPane.add(candidate, BorderLayout.NORTH); //候補をラベル表示
 		
 		contentPane.add(input, BorderLayout.CENTER); //テキストフィールドを配置
 		
@@ -65,11 +64,6 @@ public class Numeron extends JFrame {
 		computer = new Computer();
 	}
 
-	/* テキストフィールドに引数の文字列をつなげる */
-	public void appendInput(String c) {
-		input.setText(input.getText() + c); //押したボタンの名前をつなげる
-	}
-	
 	/* 有効な数字かどうか */
 	public boolean isValidNumber(int a){
 		if( (a>=100)&&(a<1000)){
@@ -128,11 +122,9 @@ public class Numeron extends JFrame {
 				
 		}
 	}
-
 	
 	/* 数字を入力するボタンの定義 */
 	public class NumberButton extends JButton implements ActionListener {
-		private static final long serialVersionUID = 1L;
 		public NumberButton(String keyTop) {
 			super(keyTop); //JButtonクラスのコンストラクタを呼び出す
 			this.addActionListener(this); //このボタンにアクションイベントのリスナを設定
@@ -143,12 +135,11 @@ public class Numeron extends JFrame {
 				afterEnter = false;
 			}
 			String keyNumber = this.getText(); //ボタンの名前を取り出す
-			appendInput(keyNumber); //ボタンの名前をテキストフィールドにつなげる
+			input.setText(input.getText() + keyNumber);
 		}
 	}
 	/* Enterボタンを定義 */
 	public class EnterButton extends JButton implements ActionListener {
-		private static final long serialVersionUID = 1L;
 		public EnterButton(String op) {
 			super(op);
 			this.addActionListener(this);
@@ -164,7 +155,6 @@ public class Numeron extends JFrame {
 
 	/* クリアボタンの定義 */
 	public class ClearButton extends JButton implements ActionListener {
-		private static final long serialVersionUID = 1L;
 		public ClearButton(String op) {
 			super(op);
 			this.addActionListener(this);

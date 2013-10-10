@@ -12,7 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class Main extends JFrame {
+public class Numeron extends JFrame {
 	private static final long serialVersionUID = 1L;
 	//interface
 	JPanel contentPane = new JPanel();//ボタンのインターフェース
@@ -29,10 +29,10 @@ public class Main extends JFrame {
 	Computer computer;;
 	//フレームのビルド
 	public static void main( String[] args ){
-		new Main();
+		new Numeron();
 	}
 
-	public Main() {
+	public Numeron() {
 		contentPane.setLayout(borderLayout1);
 		this.setSize(new Dimension(500, 600));
 		this.setTitle("Numeron");

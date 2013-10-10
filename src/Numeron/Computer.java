@@ -1,6 +1,5 @@
 package Numeron;
 
-import java.util.Random;
 
 
 
@@ -120,7 +119,7 @@ public class Computer extends Player{
 		
 		//select in random from candidates.
 		//srand( (unsigned)time( NULL ) );
-		Random rnd = new Random();
+		//Random rnd = new Random();
 		int count2=11;//rnd.toString().valueOf(rnd);
 		do{
 			for(int i=0;i<entry.length;i++){

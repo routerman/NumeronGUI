@@ -7,14 +7,12 @@ public class Computer extends Player{
 	Entry[] entry = new Entry[1000];
 	//Entry buf_entry[1000];
 	public int candidates;
-
 	
 	public void setEntry(Entry a){entry[a.getNumber()]=a;}
 	public void deleteEntry(int a){
 		entry[a].setProbablity(0);
 		candidates--;
 	};
-	
 	
 	public void think(){
 		//とりあえず、今は何も考えていない
@@ -62,7 +60,7 @@ public class Computer extends Player{
 		return count;
 	}
 
-	//質問と応えの組み合わせから、可能性の無いものは削除。
+	//コールに対するジャッジから、可能性の無いものは削除。
 	public void remove(int test,int eat,int bite){
 		int veat,vbite;
 		deleteEntry(test);
@@ -86,35 +84,32 @@ public class Computer extends Player{
 		}
 	}
 	
+	//コールに対するジャッジを基に処理をする。
 	public void proc(Entry a){
 		//deleteEntry(a.test);
 		remove(a.getNumber(),a.getEat(),a.getBite());
 	}
-
+	//候補の数字をコンソール表示
 	public void viewEntry(){
-		//boolean flag=false;
-		//cout<<"<< The candidates.. >>"<<endl;
-/*
-#ifdef DEBUG
+		boolean flag=false;
+		System.out.println("The candidates ..");
 		for(int i=0;i<1000;i++){
-			if(entry[i].probablity>0){
-				cout<<entry[i].number<<"("<< entry[i].probablity<<"),";
+			if(entry[i].getProbablity()>0){
+				System.out.print(entry[i].getNumber() + "(" + entry[i].getProbablity() + ")");
 				flag=true;
 			}else{
-				//cout<<"___(___),";
-				//flag=true;
+				//System.out.print("___(___)");
+				flag=true;
 			}
 			if(i%10==0 && flag==true){
-				cout<<endl;
+				System.out.println("");
 				flag=false;
 			}
 		}
-#endif
-*/
 		System.out.println("The number of candidates is ");
-		//cout<<"The number of candidates is "<<candidates<<endl;
 	}
 	
+	//相手の数字を推測して言う（コール）
 	public int call(){
 		
 		//select in random from candidates.

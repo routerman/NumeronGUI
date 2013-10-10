@@ -2,15 +2,15 @@ package Numeron;
 
 
 public class Player{
-	private Entry answer;//答えの数字
+	private int answer;//答えの数字
 	public int count;//質問した回数
 //	list<Entry> anslist;
 	//void setLastEntry(Entry test){this->anslist[count]=test;}
+	public void setAnswer(int answer){this.answer=answer;}
+	public int getAnswer(){return answer;}
 
-	public void incCount(){this.count++;}
+	//public void incCount(){this.count++;}
 	public int getCount(){return count;}
-	public void setAnswer(int answer){this.answer.setNumber(answer);}
-	public int getAns(){return answer.getNumber();}
 	public void viewAnsList(){
 		/*
 		for(list<Entry>::iterator it = anslist.begin(); it!=anslist.end(); it++){
@@ -30,12 +30,12 @@ public class Player{
 	public Entry judge(int test){
 		Entry a = new Entry();
 		a.setNumber(test);
-		if(answer.getNumber()/100==test/100)a.setEat(a.getEat() + 1);
-		if(answer.getNumber()/10%10==test/10%10)a.setEat(a.getEat() + 1);
-		if(answer.getNumber()%10==test%10)a.setEat(a.getEat() + 1);
-		if((answer.getNumber()/100==test/10%10)||(answer.getNumber()/100==test%10))a.setBite(a.getBite() + 1);
-		if((answer.getNumber()/10%10==test/100)||(answer.getNumber()/10%10==test%10))a.setBite(a.getBite() + 1);
-		if((answer.getNumber()%10==test/100)||(answer.getNumber()%10==test/10%10))a.setBite(a.getBite() + 1);
+		if(answer/100==test/100)a.setEat(a.getEat() + 1);
+		if(answer/10%10==test/10%10)a.setEat(a.getEat() + 1);
+		if(answer%10==test%10)a.setEat(a.getEat() + 1);
+		if((answer/100==test/10%10)||(answer/100==test%10))a.setBite(a.getBite() + 1);
+		if((answer/10%10==test/100)||(answer/10%10==test%10))a.setBite(a.getBite() + 1);
+		if((answer%10==test/100)||(answer%10==test/10%10))a.setBite(a.getBite() + 1);
 		//cout<<test<<"is"<<a.eat<<"-"<<a.bite<<endl;
 		return a;
 	}
